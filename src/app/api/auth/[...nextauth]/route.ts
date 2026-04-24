@@ -14,11 +14,11 @@ const handler = NextAuth({
   callbacks: {
     async session({ session, token }) {
       if (session?.user && token) {
-        session.user.id = token.sub as string;
+        (session.user as any).id = token.sub as string;
       }
       return session;
     },
-    async jwt({ token, user, account }) {
+    async jwt({ token, user }) {
       if (user) {
         token.sub = user.id;
       }

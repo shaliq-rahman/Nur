@@ -1,6 +1,6 @@
 "use client";
 
-import { Check } from "lucide-react";
+
 
 export default function WeeklyProgress() {
   const days = [

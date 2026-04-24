@@ -88,7 +88,7 @@ export default function MonthCalendar() {
               
               {/* Prayer Dots */}
               <div style={{ display: "flex", gap: "3px", alignSelf: "flex-start" }}>
-                {day.dots.map((completed, i) => (
+                {day.dots.map((completed: number, i: number) => (
                   <div key={i} style={{
                     width: "4px",
                     height: "4px",
