@@ -19,10 +19,10 @@ export default function Sidebar() {
   return (
     <>
       <aside className={styles.sidebar}>
-        <div className={styles.logo}>
+        <Link href="/" className={styles.logo} style={{ textDecoration: "none" }}>
           <Moon size={24} color="var(--color-primary)" />
           Nur
-        </div>
+        </Link>
 
         <nav className={styles.nav}>
           {NAV_ITEMS.map((item) => {
@@ -50,6 +50,12 @@ export default function Sidebar() {
         </div>
       </aside>
 
+      {/* Mobile Top Back Button */}
+      <Link href="/" className={styles.mobileBackBtn}>
+         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+         Back to Live
+      </Link>
+      
       {/* Mobile Bottom Navigation */}
       <nav className={styles.mobileNav}>
         {NAV_ITEMS.slice(0, 4).map((item) => {

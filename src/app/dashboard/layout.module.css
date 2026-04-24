@@ -127,6 +127,10 @@
   color: var(--color-primary);
 }
 
+.mobileBackBtn {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .layout {
     flex-direction: column;
@@ -139,5 +143,25 @@
   }
   .mobileNav {
     display: flex;
+  }
+  
+  .mobileBackBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    color: var(--color-text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-decoration: none;
   }
 }
