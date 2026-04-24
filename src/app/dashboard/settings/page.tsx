@@ -19,7 +19,7 @@ export default function SettingsDashboard() {
 
   const handleSignOut = () => {
     alert("Signing out... (bypassed local route simulation)");
-    window.location.href = "/";
+    window.location.href = "/login";
   };
 
   return (

@@ -1,54 +1,73 @@
 "use client";
 
-// import { signIn } from "next-auth/react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
 import styles from "./page.module.css";
-import { Moon } from "lucide-react";
 
-export default function Home() {
+export default function CurrentPrayer() {
+  const router = useRouter();
+
+  const handleMarkPrayed = () => {
+    router.push("/dashboard");
+  };
+
   return (
-    <main className={styles.container}>
-      <div className={styles.logo}>
-        <Moon size={24} color="var(--color-primary)" />
-        Nur
+    <div className={styles.container}>
+      
+      {/* Visual background layers */}
+      <div className={styles.sun}></div>
+      <div className={styles.mountainBase}>
+        <div className={styles.layer1}></div>
+        <div className={styles.layer2}></div>
+        <div className={styles.layer3}></div>
       </div>
 
-      <div className={styles.content}>
-        <div className={styles.eyebrow}>Daily Namaz Tracker</div>
-        
-        <h1 className={styles.title}>
-          Five prayers.<br />
-          One quiet light.
-        </h1>
-        
-        <p className={styles.description}>
-          Track every salah — الصلاة — on your own time, in your own timezone. 
-          Nur keeps a gentle record of your days, synced privately to your Google account.
-        </p>
-        
-        {/* 
-        <button 
-          className={styles.googleButton} 
-          onClick={() => signIn('google', { callbackUrl: '/active' })}
-        > 
-        */}
-        <Link href="/active" className={styles.googleButton}>
-          {/* A simple SVG google logo */}
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.16v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.16C1.43 8.55 1 10.22 1 12s.43 3.45 1.16 4.93l2.85-2.22.83-.62z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.16 7.07l3.68 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-          Continue with Google
-          <span style={{marginLeft: "4px"}}>→</span>
-        </Link>
-        {/* </button> */}
+      <div className={styles.topBar}>
+        <button className={styles.backBtn} onClick={() => router.back()}>
+          <ChevronLeft size={18} />
+          Back
+        </button>
+        <div className={styles.statusPill}>
+          <span style={{ color: "#548866" }}>●</span> CURRENT WINDOW
+        </div>
+      </div>
 
-        <p className={styles.footerText}>
-          Nur will create a private sheet in your Drive to store prayer logs. Nothing leaves your account.
+      <div className={styles.mainContent}>
+        <div className={styles.eyebrow}>MAGHRIB · المغرب</div>
+        
+        <div className={styles.titleGroup}>
+          <h1 className={styles.englishTitle}>Maghrib</h1>
+          <span className={styles.arabicTitle}>المغرب</span>
+        </div>
+
+        <p className={styles.poem}>
+          The light is folding. Pray now — the window is short, closing as the first stars appear in the east.
         </p>
       </div>
-    </main>
+
+      <div className={styles.footer}>
+        <div className={styles.metricBlock}>
+          <span className={styles.metricLabel}>Begins</span>
+          <span className={styles.metricValue}>18:47</span>
+        </div>
+        <div className={styles.metricBlock}>
+          <span className={styles.metricLabel}>Ends</span>
+          <span className={styles.metricValue}>20:12</span>
+        </div>
+        <div className={styles.metricBlock}>
+          <span className={styles.metricLabel}>Closes In</span>
+          <span className={styles.metricValue}>1h 12m <span style={{fontSize:"0.8rem", color:"rgba(255,255,255,0.7)"}}>24s</span></span>
+        </div>
+        <div className={styles.metricBlock}>
+          <span className={styles.metricLabel}>Qibla</span>
+          <span className={styles.metricValue}>293° <span style={{fontSize:"0.8rem", color:"rgba(255,255,255,0.7)"}}>NW</span></span>
+        </div>
+        
+        <button className={styles.actionButton} onClick={handleMarkPrayed}>
+          Mark as prayed <span>→</span>
+        </button>
+      </div>
+
+    </div>
   );
 }
