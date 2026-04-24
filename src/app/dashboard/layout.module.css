@@ -1,0 +1,143 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #FDFBF7; /* Soft creamy white matching the mockup */
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #FDFBF7;
+  border-right: 1px solid rgba(31, 63, 52, 0.08); /* subtle dark green border */
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  z-index: 20;
+}
+
+.mainContent {
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Sidebar inner elements */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 3rem;
+  padding-left: 0.5rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.navLink:hover {
+  background-color: rgba(31, 63, 52, 0.03);
+  color: var(--color-text);
+}
+
+.navLink.active {
+  background-color: rgba(31, 63, 52, 0.08);
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: rgba(31, 63, 52, 0.05);
+  margin-top: auto;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-primary-light);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.userInfo h5 {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  margin: 0;
+  font-size: 0.85rem;
+}
+.userInfo p {
+  color: var(--color-text-muted);
+  margin: 0;
+  font-size: 0.7rem;
+}
+
+/* Mobile Nav */
+.mobileNav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding: 1rem;
+  justify-content: space-around;
+  z-index: 100;
+}
+
+.mobileNavItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+}
+
+.mobileNavItem.active {
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    display: none;
+  }
+  .mainContent {
+    height: calc(100vh - 70px); /* Leave room for bottom nav */
+  }
+  .mobileNav {
+    display: flex;
+  }
+}

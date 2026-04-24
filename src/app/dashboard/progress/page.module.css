@@ -1,0 +1,151 @@
+.progressContainer {
+  padding: 3rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  fontSize: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary-light);
+  margin-bottom: 0.5rem;
+}
+
+.monthTitle {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  color: var(--color-primary);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.monthSubtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.monthNav {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.navBtn {
+  background: white;
+  border: 1px solid rgba(31, 63, 52, 0.1);
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.navBtn:hover {
+  background: rgba(31, 63, 52, 0.05);
+}
+
+/* Stat Cards Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Main Data Panels */
+.panelsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.panelCard {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(31, 63, 52, 0.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.panelEyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary-light);
+  margin-bottom: 0.25rem;
+}
+
+.panelTitle {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.legend {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.dotFilled {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.dotEmpty {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(31, 63, 52, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .progressContainer {
+    padding: 2rem;
+  }
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .panelsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .progressContainer {
+    padding: 1.5rem;
+  }
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  .monthTitle {
+    font-size: 2.25rem;
+  }
+}
